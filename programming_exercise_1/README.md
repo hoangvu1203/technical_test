@@ -37,7 +37,7 @@ The multi-dimensional list has **irregular shapes**:
 - **Built-in NaN handling:** No need to manually manage missing data
 - **Rich functionality:** Built-in methods for calculations and filtering
 
-**Why I used `stack()` instead of `flatten()`:**
+**What is the different between `stack()` and `flatten()`:**
 - **`flatten()` (NumPy):** Includes ALL values (including NaN) → `[11, 12, 5, 2, 15, 6, 10, NaN, 10, 8, 12, 5, 12, 15, 8, 6]`
 - **`stack()` (Pandas):** Automatically removes NaN values → `[11, 12, 5, 2, 15, 6, 10, 10, 8, 12, 5, 12, 15, 8, 6]`
 

@@ -28,8 +28,9 @@ The data comes as a **dictionary with lists as values**, which is not ideal for 
 - **Need:** Convert to a format that supports statistical calculations
 
 ## 2. How I Solved It
+The solution 1 is the best solution, the other 2 solution is just a test I try to figure out different ways to solve problem, and have a overview to compare.
 
-### Solution: Using Pandas & NumPy (`using_numpy_pandas.py`)
+### Solution 1: Using Pandas & NumPy (`using_numpy_pandas.py`)
 
 **Why I chose DataFrame transformation:**
 - **Dictionary → DataFrame:** Converts the data structure to a tabular format
@@ -46,6 +47,19 @@ The data comes as a **dictionary with lists as values**, which is not ideal for 
 - **Consistent output:** Returns a well-formatted DataFrame with all statistics
 - **Efficient:** Avoids multiple separate calculations
 - **Professional presentation:** Results are organized in a clear table format
+
+### Solution 2: Using statistics library
+
+**Simple built-in approach:**
+- Uses Python's built-in `statistics` module for calculations
+
+
+### Solution 3: Using plain python 
+
+**Custom implementation approach:**
+- Implements all statistical functions from scratch (mean, variance, standard deviation)
+- Understanding of mathematical formulas behind the statistics
+- Uses only basic Python operations and built-in functions
 
 ## 3. Results
 ```

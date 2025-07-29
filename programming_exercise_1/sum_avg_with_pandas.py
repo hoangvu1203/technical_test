@@ -19,9 +19,12 @@ total_avg = all_numbers.mean()                      # Average of all numbers
 even_sum = even_numbers.sum()                       # Sum of all even numbers
 even_avg = even_numbers.mean()                      # Average of all even numbers
 
+# Formatting the results
+results = pd.DataFrame({                            # Create a results table
+    'Sum': [total_sum.round(2), even_sum.round(2)],
+    'Average': [total_avg.round(2), even_avg.round(2)]
+}, index=['All', 'Even'])
+
 # Display results
 print("Using pandas:")
-print(f"1. Sum of all numbers: {total_sum}")
-print(f"2. Average of all numbers: {total_avg}")
-print(f"3. Sum of all even numbers: {even_sum}")
-print(f"4. Average of all even numbers: {even_avg}")
+print(results)

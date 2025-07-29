@@ -29,6 +29,13 @@ The multi-dimensional list has **irregular shapes**:
 - Need to filter for even numbers
 
 ## 2. How I Solved It
+### I follow this structure
+1. Import libraries and create custom function if needed
+2. Initialize variables to store data
+3. Preprocesing the data (flatten, get_even)
+4. Calculate the results
+5. Formatting the results for better display
+6. Display the results
 
 ### Solution 1: Using Pandas (`with_pandas.py`)
 
@@ -62,7 +69,9 @@ for num in all_numbers:
 ```
 
 ## Results
-- Sum of all numbers: 137.0
-- Average of all numbers: 9.13
-- Sum of even numbers: 86.0
-- Average of even numbers: 8.6
+```
+        Sum    Average  
+All     137.0  9.13    
+Even    86.0   8.60    
+
+```

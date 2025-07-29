@@ -30,6 +30,14 @@ The data comes as a **dictionary with lists as values**, which is not ideal for 
 ## 2. How I Solved It
 The solution 1 is the best solution, the other 2 solution is just a test I try to figure out different ways to solve problem, and have a overview to compare.
 
+### I follow this structure
+1. Import libraries and create custom function if needed
+2. Initialize variables to store data
+3. Preprocesing the data (flatten)
+4. Calculate the results
+5. Formatting the results for better display
+6. Display the results
+
 ### Solution 1: Using Pandas & NumPy (`using_numpy_pandas.py`)
 
 **Why I chose DataFrame transformation:**
@@ -51,8 +59,7 @@ The solution 1 is the best solution, the other 2 solution is just a test I try t
 ### Solution 2: Using statistics library
 
 **Simple built-in approach:**
-- Uses Python's built-in `statistics` module for calculations
-
+- Uses Python's built-in `statistics` module for calculations and `tabulate` for table format display
 
 ### Solution 3: Using plain python 
 
@@ -66,11 +73,10 @@ The solution 1 is the best solution, the other 2 solution is just a test I try t
 1. Global average of all values: 4.25
 
 2. Statistics per test:
-        Cholesterol  Sugar  Enzyms  Calcium
-mean          3.11   4.82    3.89     5.43
-max           4.32   6.00    5.67     6.00
-min           2.00   3.45    2.00     4.67
-std           1.16   1.28    1.84     0.67
-var           1.35   1.63    3.38     0.45
+             mean   max   min   std   var
+Cholesterol  3.11  4.32  2.00  1.16  1.35
+Sugar        4.82  6.00  3.45  1.28  1.65
+Enzyms       3.89  5.67  2.00  1.84  3.38
+Calcium      5.43  6.00  4.67  0.69  0.47
 ```
 

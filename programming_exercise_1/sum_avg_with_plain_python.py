@@ -1,4 +1,25 @@
-# Table formatting function 
+# Function implementations
+def flatten_list(data, res_list):
+    """
+    Flatten a multi-dimensional list into a single list
+    data: multi-dimensional list
+    Returns: flattened list
+    """
+    for row in data:                              
+        res_list.extend(row)                        # Add all numbers from the row at once
+    return res_list
+
+def get_even(data, res_list):
+    """
+    Check if a number is even
+    num: number
+    Returns: True if the number is even, False otherwise
+    """
+    for num in data:
+        if num % 2 == 0:
+            res_list.append(num)
+    return res_list
+
 def format_results_table(data_dict):
     """
     Format results into a table string
@@ -13,56 +34,34 @@ def format_results_table(data_dict):
         sum_val, avg_val = values
         result += f"{row_name:^8}{sum_val:^8.2f}{avg_val:^8.2f}\n"
 
-    return result.rstrip()                           # Remove trailing newline
+    return result.rstrip()                          # Remove trailing newline
 
-# Flatten function 
-def flatten_list(data, res_list):
-    """
-    Flatten a multi-dimensional list into a single list
-    data: multi-dimensional list
-    Returns: flattened list
-    """
-    for row in data:                              
-        for num in row:
-            res_list.append(num) 
-    return res_list
+# Main execution
+if __name__ == "__main__":
+    # Initialize lists to store data
+    data = [[11, 12, 5, 2],                             # Initialize a multi-dimensional list to store data
+            [15, 6, 10], 
+            [10, 8, 12, 5], 
+            [12, 15, 8, 6]]         
+    all_numbers = []                                    # Initialize an empty list to store all numbers
+    even_numbers = []                                   # Initialize an empty list to store even numbers
 
-# Get even function
-def get_even(data, res_list):
-    """
-    Check if a number is even
-    num: number
-    Returns: True if the number is even, False otherwise
-    """
-    for num in data:
-        if num % 2 == 0:
-            res_list.append(num)
-    return res_list
+    # Data Preprocessing
+    all_numbers = flatten_list(data, all_numbers)       # Flatten all numbers into a single Series
+    even_numbers = get_even(all_numbers, even_numbers)  # Get even numbers
 
-# Initialize lists to store data
-data = [[11, 12, 5, 2],                             # Initialize a multi-dimensional list to store data
-        [15, 6, 10], 
-        [10, 8, 12, 5], 
-        [12, 15, 8, 6]]         
-all_numbers = []                                    # Initialize an empty list to store all numbers
-even_numbers = []                                   # Initialize an empty list to store even numbers
+    # Calculation
+    total_sum = float(sum(all_numbers))                 # Sum of all numbers
+    total_avg = sum(all_numbers) / len(all_numbers)     # Average of all numbers
+    even_sum = float(sum(even_numbers))                 # Sum of all even numbers
+    even_avg = sum(even_numbers) / len(even_numbers)    # Average of all even numbers
 
-# Data Preprocessing
-all_numbers = flatten_list(data, all_numbers)       # Flatten all numbers into a single Series
-even_numbers = get_even(all_numbers, even_numbers)  # Get even numbers
+    # Formatting the results
+    results = format_results_table({                    # Create a results table
+        'All': [total_sum, total_avg],
+        'Even': [even_sum, even_avg]
+    })
 
-# Calculation
-total_sum = float(sum(all_numbers))                 # Sum of all numbers
-total_avg = sum(all_numbers) / len(all_numbers)     # Average of all numbers
-even_sum = float(sum(even_numbers))                 # Sum of all even numbers
-even_avg = sum(even_numbers) / len(even_numbers)    # Average of all even numbers
-
-# Formatting the results
-results = format_results_table({                    # Create a results table
-    'All': [total_sum, total_avg],
-    'Even': [even_sum, even_avg]
-})
-
-# Display results
-print("Using no pandas:")
-print(results)
+    # Display results
+    print("Using no pandas:")
+    print(results)

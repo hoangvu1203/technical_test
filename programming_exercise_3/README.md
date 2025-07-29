@@ -50,7 +50,12 @@ This is the same as the initial value that was assigned at the beginning of the 
 **To:** `multiply_two_numbers(a, b)`
 **Reason:** More descriptive name that clearly indicates what the function does. Function names should be self-documenting.
 
-#### **Change 2: Return Statement**
+#### **Change 2: Add Function Docstring**
+**From:** Undocumented function
+**To:** Comprehensive docstring with function description, parameters, and return value
+**Reason:** Provides clear documentation that helps other developers understand the function's purpose, expected inputs, and return value, improving code maintainability and readability
+
+#### **Change 3: Return Statement**
 **From:** `print("Result is {}".format(result))`
 **To:** `return result`
 **Reason:** 
@@ -59,7 +64,7 @@ This is the same as the initial value that was assigned at the beginning of the 
 - Follows the principle that functions should have clear inputs and outputs
 - Avoids side effects and makes the function predictable
 
-#### **Change 3: Assignment of Return Value**
+#### **Change 4: Assignment of Return Value**
 **From:** `myFunc(2,3)` (no assignment)
 **To:** `result = multiply_two_numbers(2,3)`
 **Reason:**
@@ -67,7 +72,7 @@ This is the same as the initial value that was assigned at the beginning of the 
 - Makes the intention clear - we want to use the calculated result
 - Eliminates scope confusion - now we know which `result` we're referring to
 
-#### **Change 4: String Formatting**
+#### **Change 5: String Formatting**
 **From:** `print("Result is {}".format(result))`
 **To:** `print(f"Result is {result}")`
 **Reason:**
@@ -75,7 +80,7 @@ This is the same as the initial value that was assigned at the beginning of the 
 - Better performance than `.format()` method
 - Cleaner and more intuitive syntax
 
-#### **Change 5: Print Location**
+#### **Change 6: Print Location**
 **From:** Print inside the function
 **To:** Print in the main block after assignment
 **Reason:**

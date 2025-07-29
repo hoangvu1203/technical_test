@@ -17,3 +17,6 @@ technical_test/
     ├── README.md                                   # Detailed exercise 3 documentation
     └── optimize.py                                 # Optimized solution
 ```
+
+## Future Implementation
+I considered **modularizing** the custom functions and shared functionality into separate files for improved **maintainability**, **testability**, **reusability**, and **scalability**. However, this may constitute **overengineering** for such a simple exercise, so I opted to keep the current straightforward implementation.

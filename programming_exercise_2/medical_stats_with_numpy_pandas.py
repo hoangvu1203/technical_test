@@ -16,9 +16,12 @@ all_values = df.stack()                                     # Flatten the DataFr
 
 # Calculation
 global_avg = all_values.mean()                              # Calculate the global average of all values
-summary = df.agg(['mean', 'max', 'min', 'std', 'var'])      # Calculate the statistics per test
+test_results = df.agg(['mean', 'max', 'min', 'std', 'var']) # Calculate the statistics per test
+
+# Formatting the results
+table_results = test_results.transpose().round(2)           # Transpose the DataFrame and round the values to 2 decimal places
 
 # Display results
 print(f"Global average of all values: {global_avg:.2f}")    # Print the global average
 print("\nStatistics per test:")                             # Print the statistics per test
-print(summary.round(2))                                  
+print(table_results)                                  

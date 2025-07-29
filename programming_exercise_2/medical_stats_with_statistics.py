@@ -1,4 +1,31 @@
 import statistics
+from tabulate import tabulate
+
+# Table formatting function
+def format_results_table(test_results):
+    """
+    Format medical test results into a table string
+    test_results: dictionary with test names and their statistics
+    Returns: formatted table as string
+    """
+    # Initialize empty table data
+    table_data = []
+    # Header
+    headers = ['', 'mean', 'max', 'min', 'std', 'var']
+
+    # Data rows
+    for test, stats in test_results.items():
+        row = [
+            test,
+            stats['mean'],
+            stats['max'],
+            stats['min'],
+            stats['std_dev'],
+            stats['variance']
+        ]
+        table_data.append(row)
+
+    return tabulate(table_data, headers=headers, tablefmt="simple", floatfmt=".2f") 
 
 # Initialize variables to store data
 MedicalTests = {                                # Dictionary of medical test results
@@ -14,7 +41,7 @@ for values in MedicalTests.values():            # Flatten the dictionary into a 
     all_values.extend(values)
 
 # Calculation
-global_average = statistics.mean(all_values)    # Calculate the global average of all values
+global_avg = statistics.mean(all_values)        # Calculate the global average of all values
 
 test_results = {}                               # Initialize an empty dictionary to store the statistics per test
 for test, values in MedicalTests.items():       # Calculate the statistics per test
@@ -26,14 +53,10 @@ for test, values in MedicalTests.items():       # Calculate the statistics per t
         'variance': statistics.variance(values)
     }
 
-# Display results
-print(f"Global average: {global_average:.2f}")  # Print the global average
+# Formatting the results
+table_results = format_results_table(test_results)
 
+# Display results
+print(f"Global average: {global_avg:.2f}")      # Print the global average
 print("\nStatistics per test:")                 # Print the statistics per test
-for test, stats in test_results.items():        # Print all the stored results
-    print(f"\n{test}:")
-    print(f"  Mean: {stats['mean']:.2f}")
-    print(f"  Max: {stats['max']}")
-    print(f"  Min: {stats['min']}")
-    print(f"  Standard Deviation: {stats['std_dev']:.2f}")
-    print(f"  Variance: {stats['variance']:.4f}")
+print(table_results)

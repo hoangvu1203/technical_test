@@ -12,9 +12,26 @@ def flatten_list(data, res_list):
         res_list.extend(row)                                     # Add all numbers from the row at once
     return res_list
 
+def get_test_results(data):
+    """
+    Calculate the statistics per test
+    data: dictionary with test names and their values
+    Returns: dictionary with test names and their statistics
+    """
+    test_results = {}                                            # Initialize an empty dictionary to store the statistics per test
+    for test, values in data.items():                            # Calculate the statistics per test
+        test_results[test] = {
+            'mean': statistics.mean(values),
+            'max': max(values),
+            'min': min(values),
+            'std_dev': statistics.stdev(values),
+            'variance': statistics.variance(values)
+        }
+    return test_results
+
 def format_results_table(test_results):
     """
-    Format medical test results into a table string
+    Format medical test results into a table string using tabulate
     test_results: dictionary with test names and their statistics
     Returns: formatted table as string
     """
@@ -53,16 +70,7 @@ if __name__ == "__main__":
 
     # Calculation
     global_avg = statistics.mean(all_values)                     # Calculate the global average of all values
-
-    test_results = {}                                            # Initialize an empty dictionary to store the statistics per test
-    for test, values in MedicalTests.items():                    # Calculate the statistics per test
-        test_results[test] = {
-            'mean': statistics.mean(values),
-            'max': max(values),
-            'min': min(values),
-            'std_dev': statistics.stdev(values),
-            'variance': statistics.variance(values)
-        }
+    test_results = get_test_results(MedicalTests)                # Calculate the statistics per test
 
     # Formatting the results
     table_results = format_results_table(test_results)

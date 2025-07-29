@@ -38,6 +38,24 @@ def std_dev(lst):
     """
     return variance(lst) ** 0.5
 
+def get_test_results(data):
+    """
+    Calculate the statistics per test
+    data: dictionary with test names and their values
+    Returns: dictionary with test names and their statistics
+    """
+    test_results = {}                                            # Initialize an empty dictionary to store the statistics per test
+    for test, values in data.items():                            # Calculate the statistics per test
+        test_results[test] = {
+            'mean': float(mean(values)),
+            'max': float(max(values)),
+            'min': float(min(values)),
+            'variance': float(variance(values)),
+            'std_dev': float(std_dev(values))
+        }
+
+    return test_results
+
 def format_results_table(test_results):
     """
     Format medical test results into a table string
@@ -69,16 +87,7 @@ if __name__ == "__main__":
 
     # Calculation
     global_avg = mean(all_values)                                # Calculate the global average of all values
-
-    test_results = {}                                            # Initialize an empty dictionary to store the statistics per test
-    for test, values in MedicalTests.items():                    # Calculate the statistics per test
-        test_results[test] = {
-            'mean': float(mean(values)),
-            'max': float(max(values)),
-            'min': float(min(values)),
-            'variance': float(variance(values)),
-            'std_dev': float(std_dev(values))
-        }
+    test_results = get_test_results(MedicalTests)                # Calculate the statistics per test
 
     # Formatting the results
     table_results = format_results_table(test_results)

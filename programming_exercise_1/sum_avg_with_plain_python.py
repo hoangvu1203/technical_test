@@ -6,7 +6,7 @@ def flatten_list(data, res_list):
     Returns: flattened list
     """
     for row in data:                              
-        res_list.extend(row)                        # Add all numbers from the row at once
+        res_list.extend(row)                            # Add all numbers from the row at once
     return res_list
 
 def get_even(data, res_list):
@@ -34,7 +34,7 @@ def format_results_table(data_dict):
         sum_val, avg_val = values
         result += f"{row_name:^8}{sum_val:^8.2f}{avg_val:^8.2f}\n"
 
-    return result.rstrip()                          # Remove trailing newline
+    return result.rstrip()                              # Remove trailing newline
 
 # Main execution
 if __name__ == "__main__":

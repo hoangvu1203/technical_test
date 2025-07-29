@@ -1,4 +1,10 @@
 def multiply_two_numbers(a, b):             # change from myFunc to multiply_two_numbers for meaningful name
+    """
+    Multiply two numbers
+    a: first number
+    b: second number
+    Returns: product of the two numbers
+    """
     result = a*b
     return result                           # return the result instead of printing it
     

@@ -29,12 +29,12 @@ This is the same as the initial value that was assigned at the beginning of the 
 **The value remains the same (12) because of Python's variable scope rules:**
 
 ### What happens in the code:
-1. **Global scope:** `result = 12` creates a variable in the global scope
-2. **Function call:** `myFunc(2,3)` is called
-3. **Local scope:** Inside the function, `result = a*b` creates a **new local variable** (not the global one)
-4. **Calculation:** The local `result` gets the value `2 * 3 = 6`
-5. **Function ends:** The local `result` disappears when the function exits
-6. **Global scope:** The global `result` remains unchanged at 12
+1. `result = 12` creates a variable in the global scope
+2. `myFunc(2,3)` is called
+3. Inside the function, `result = a*b` creates a **new local variable** (not the global one)
+4. The local `result` gets the value `2 * 3 = 6`
+5. The local `result` disappears when the function exits
+6. The global `result` remains unchanged at 12
 
 ### The Scope Issue:
 - **Variable Shadowing:** The local `result` inside the function "hides" the global `result`
